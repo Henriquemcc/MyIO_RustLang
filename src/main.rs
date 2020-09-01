@@ -1,5 +1,6 @@
 mod myio;
 
+///Esta funcao eh a funcao principal, que eh a primeira funcao chamada quando o programa inicia.
 fn main()
 {
     println!("Testando:");
