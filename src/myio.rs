@@ -1,521 +1,543 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2020 Henrique Mendonça Castelar Campos
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 use std::io;
 
-///Esta funcao serve para ler (da entrada padrao) uma string.
-///Retorno: String: String lida.
+/// Le (da entrada padrao) uma string.
+/// # Return
+/// * String - String lida.
 pub fn read_string() -> String
 {
     //Lendo entrada
-    let mut input: String;
-    loop
+    let mut input = String::new();
+
+    let mut repetir = true;
+    while repetir
     {
-        input = String::new();
-        if let Err(e)=io::stdin().read_line(&mut input)
+        if let Err(e) = io::stdin().read_line(&mut input)
         {
             eprintln!("{}", e);
-        }
-        else
-        {
-            break;
+        } else {
+            repetir = false;
         }
     }
 
     return input;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro unsigned de 8 bits.
-///Retorno: u8: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro unsigned de 8 bits.
+/// # Return
+/// * u8 - Numero inteiro unsigned de 8 bits lido.
 pub fn read_u8() -> u8
 {
-    let unsigned_integer: u8;
-    loop
+    let mut unsigned_integer: u8 = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para u8
-        let result=input.parse::<u8>();
+        let result = input.parse::<u8>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            unsigned_integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            unsigned_integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return unsigned_integer
+    return unsigned_integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro unsigned de 16 bits.
-///Retorno: u16: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro unsigned de 16 bits.
+/// # Return
+/// * u16 - Numero inteiro unsigned de 16 bits lido.
 pub fn read_u16() -> u16
 {
-    let unsigned_integer: u16;
-    loop
+    let mut unsigned_integer: u16 = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para u16
-        let result=input.parse::<u16>();
+        let result = input.parse::<u16>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            unsigned_integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            unsigned_integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return unsigned_integer
+    return unsigned_integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro unsigned de 32 bits.
-///Retorno: u32: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro unsigned de 32 bits.
+/// # Return
+/// * u32 - Numero inteiro unsigned de 32 bits lido.
 pub fn read_u32() -> u32
 {
-    let unsigned_integer: u32;
-    loop
+    let mut unsigned_integer: u32 = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para u32
-        let result=input.parse::<u32>();
+        let result = input.parse::<u32>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            unsigned_integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            unsigned_integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return unsigned_integer
+    return unsigned_integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro unsigned de 64 bits.
-///Retorno: u64: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro unsigned de 64 bits.
+/// # Return
+/// * u64 - Numero inteiro unsigned de 64 bits lido.
 pub fn read_u64() -> u64
 {
-    let unsigned_integer: u64;
-    loop
+    let mut unsigned_integer: u64 = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para u64
-        let result=input.parse::<u64>();
+        let result = input.parse::<u64>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            unsigned_integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            unsigned_integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return unsigned_integer
+    return unsigned_integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro unsigned de 128 bits.
-///Retorno: u128: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro unsigned de 128 bits.
+/// # Return
+/// * u128 - Numero inteiro unsigned de 128 bits lido.
 pub fn read_u128() -> u128
 {
-    let unsigned_integer: u128;
-    loop
+    let mut unsigned_integer: u128 = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para u128
-        let result=input.parse::<u128>();
+        let result = input.parse::<u128>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            unsigned_integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            unsigned_integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return unsigned_integer
+    return unsigned_integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro unsigned do tamanho da palavra do processador.
-///Retorno: usize: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro unsigned do tamanho da palavra do processador.
+/// # Return
+/// * usize - Numero inteiro unsigned do tamanho da palavra do processador lido.
 pub fn read_usize() -> usize
 {
-    let unsigned_integer: usize;
-    loop
+    let mut unsigned_integer: usize = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para usize
-        let result=input.parse::<usize>();
+        let result = input.parse::<usize>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            unsigned_integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            unsigned_integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return unsigned_integer
+    return unsigned_integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro de 8 bits.
-///Retorno: i8: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro de 8 bits.
+/// # Return
+/// * i8 - Numero inteiro de 8 bits lido.
 pub fn read_i8() -> i8
 {
-    let integer: i8;
-    loop
+    let mut integer: i8 = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para i8
-        let result=input.parse::<i8>();
+        let result = input.parse::<i8>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return integer
+    return integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro de 16 bits.
-///Retorno: i16: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro de 16 bits.
+/// # Return
+/// * i16 - Numero inteiro de 16 bits lido.
 pub fn read_i16() -> i16
 {
-    let integer: i16;
-    loop
+    let mut integer: i16 = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para i16
-        let result=input.parse::<i16>();
+        let result = input.parse::<i16>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return integer
+    return integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro de 32 bits.
-///Retorno: i32: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro de 32 bits.
+/// # Return
+/// * i32 - Numero inteiro de 32 bits lido.
 pub fn read_i32() -> i32
 {
-    let integer: i32;
-    loop
+    let mut integer: i32 = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para i32
-        let result=input.parse::<i32>();
+        let result = input.parse::<i32>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return integer
+    return integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro de 64 bits.
-///Retorno: i64: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro de 64 bits.
+/// # Return
+/// * i64 - Numero inteiro de 64 bits lido.
 pub fn read_i64() -> i64
 {
-    let integer: i64;
-    loop
+    let mut integer: i64 = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para i64
-        let result=input.parse::<i64>();
+        let result = input.parse::<i64>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return integer
+    return integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro de 128 bits.
-///Retorno: i128: Numero inteiro lido.
+/// Le (da entrada padrao) um numero inteiro de 128 bits.
+/// # Return
+/// * i128 - Numero inteiro de 128 bits lido.
 pub fn read_i128() -> i128
 {
-    let integer: i128;
-    loop
+    let mut integer: i128 = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para i128
-        let result=input.parse::<i128>();
+        let result = input.parse::<i128>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return integer
+    return integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero inteiro do tamanho da palavra do processador.
-///Retorno: isize: Numero inteiro lido.
+/// Ler (da entrada padrao) um numero inteiro do tamanho da palavra do processador.
+/// # Return
+/// * isize - Numero inteiro do tamanho da palavra do processador lido.
 pub fn read_isize() -> isize
 {
-    let integer: isize;
-    loop
+    let mut integer: isize = 0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para i8
-        let result=input.parse::<isize>();
+        let result = input.parse::<isize>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            integer = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            integer=result.unwrap();
-            break;
-        }
-
     }
 
-    return integer
+    return integer;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero real de 32 bits.
-///Retorno: f32: Numero real lido.
+/// Le (da entrada padrao) um numero real de 32 bits.
+/// # Return
+/// * f32 - Numero real de 32 bits lido.
 pub fn read_f32() -> f32
 {
-    let float: f32;
-    loop
+    let mut float: f32 = 0.0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para f32
-        let result=input.parse::<f32>();
+        let result = input.parse::<f32>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            float = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            float=result.unwrap();
-            break;
-        }
-
     }
 
-    return float
+    return float;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um numero real de 64 bits.
-///Retorno: f64: Numero real lido.
+/// Le (da entrada padrao) um numero real de 64 bits.
+/// # Return
+/// * f64: Numero real de 64 bits lido.
 pub fn read_f64() -> f64
 {
-    let float: f64;
-    loop
+    let mut float: f64 = 0.0;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para f64
-        let result=input.parse::<f64>();
+        let result = input.parse::<f64>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            float = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            float=result.unwrap();
-            break;
-        }
-
     }
 
-    return float
+    return float;
 }
 
-///Esta funcao serve para ler (da entrada padrao) um caractere.
-///Retorno: char: Caractere lido.
+/// Ler (da entrada padrao) um caractere.
+/// # Return
+/// * char - Caractere lido.
 pub fn read_char() -> char
 {
-    let character: char;
-    loop
+    let mut character: char = ' ';
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para f64
-        let result=input.parse::<char>();
+        let result = input.parse::<char>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            character = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            character=result.unwrap();
-            break;
-        }
-
     }
 
     return character;
-
 }
 
-///Esta funcao serve para ler (da entrada padrao) um valor booleano.
-///Retorno: bool: Valor booleano lido.
+/// Le (da entrada padrao) um valor booleano.
+/// # Return
+/// * bool - Valor booleano lido.
 pub fn read_bool() -> bool
 {
-    let boolean: bool;
-    loop
+    let mut boolean: bool = false;
+
+    let mut repetir = true;
+    while repetir
     {
         //Lendo entrada
-        let input=read_string();
+        let input = read_string();
 
         //Removendo espacos
         let input = input.trim();
 
         //Convertendo para f64
-        let result=input.parse::<bool>();
+        let result = input.parse::<bool>();
 
         if result.is_err()
         {
-            eprintln!("{}",result.unwrap_err());
+            eprintln!("{}", result.unwrap_err());
+        } else {
+            boolean = result.unwrap();
+            repetir = false;
         }
-        else
-        {
-            boolean=result.unwrap();
-            break;
-        }
-
     }
 
     return boolean;
-
 }
